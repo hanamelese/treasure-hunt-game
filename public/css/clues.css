@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* matching landing page */
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+/* Style the clues card to blend with background */
+.clues-card {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    max-width: 900px;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    margin-top: 40px;
+}
+
+/* Heading styles */
+.main-heading {
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.clues-para {
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* List styles */
+li {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Optional: Make links stand out on hover */
+a:hover {
+    color: #01fe87;
+}
