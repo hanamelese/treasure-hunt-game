@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body with a sleek gradient background */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* matching landing page */
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* Container for the login form */
+.box {
+    position: relative;
+    width: 400px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header styling */
+.login-heading {
+    color: #fff;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Input container styles */
+.inputBox {
+    position: relative;
+    width: 100%;
+    margin-top: 25px;
+}
+
+/* Input fields styling */
+.inputBox input {
+    width: 100%;
+    padding: 15px 20px;
+    background: transparent;
+    border: 2px solid #4CAF50; /* matching button color */
+    border-radius: 8px;
+    outline: none;
+    font-size: 1em;
+    color: #fff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.inputBox input:focus {
+    border-color: #66bb6a;
+    box-shadow: 0 0 8px #66bb6a;
+}
+
+/* Labels for inputs */
+.inputBox span {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    background: rgba(28, 28, 28, 0.7);
+    padding: 0 8px;
+    font-size: 0.85em;
+    color: #ccc;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.inputBox input:focus ~ span,
+.inputBox input:valid ~ span {
+    top: -20px;
+    left: 10px;
+    font-size: 0.75em;
+    color: #66bb6a;
+}
+
+/* Style for underline effect on input focus */
+.inputBox input:focus ~ i {
+    height: 44px;
+    border-radius: 4px;
+}
+
+/* Ensure the container for the button is full width and aligned with input fields */
+button.link-class {
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: #4CAF50; /* matching theme */
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%; /* full width of parent container */
+}
+
+/* Optional: if you have a wrapper for the button, ensure it matches input width */
+.play-button {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* center the button if needed */
+    margin-top: 30px; /* space above button */
+}
+
+button.link-class:hover {
+    background-color: #66bb6a;
+    box-shadow: 0 8px 15px rgba(102, 187, 106, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Optional: Add focus outline for accessibility */
+button.link-class:focus {
+    outline: 2px solid #66bb6a;
+}
+
+/* Responsive adjustments */
+@media(max-width: 500px){
+    body {
+        padding: 20px;
+    }
+    .box {
+        width: 90%;
+        padding: 30px 20px;
+    }
+}
+
+/* Heading styles with new animation and color scheme */
+.main-heading {
+    position: relative;
+    font-size: 90px;
+    color: #ffffff; /* White base color */
+    -webkit-text-stroke: 1.5px #4CAF50; /* Match button color (green) */
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    animation: shimmerGlow 3s infinite alternate;
+}
+
+/* New shimmer glow animation for the heading */
+@keyframes shimmerGlow {
+    0% {
+        text-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50;
+        opacity: 1;
+    }
+    100% {
+        text-shadow: 0 0 20px #66bb6a, 0 0 40px #66bb6a, 0 0 60px #66bb6a;
+        opacity: 0.9;
+    }
+}
+
+.main-heading::before {
+    display: none;
+}
+.link-class {
+    display: inline-block;
+    background-color: #4CAF50; 
+    color: #ffffff; 
+    padding: 15px 40px;
+    margin: 20px;
+    border-radius: 12px;
+    font-size: 1.5em;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* Make buttons container flex to align side by side */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttons-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+@keyframes pulseHover {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.link-class:hover {
+    background-color: #45a049; 
+    animation: pulseHover 0.6s forwards;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+    transform: scale(1.05);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .main-heading {
+        font-size: 50px;
+        padding: 0 10px;
+    }
+
+    .buttons-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .link-class {
+        font-size: 1.2em;
+        padding: 12px 30px;
+        margin: 10px 0;
+    }
+}
