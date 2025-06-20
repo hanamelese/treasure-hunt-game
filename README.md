@@ -1,6 +1,6 @@
 # treasure-hunt-game
 # Contributors
-# No. 	Name 	University ID
+
   1 	Hana Melese 	UGR/3687/15
 
   2 	Lensa yaDesa 	UGR/8593/15
