@@ -1,21 +1,19 @@
 {
-  "name": "treasure-hunt-game",
+  "name": "treasure-hunt",
   "version": "1.0.0",
-  "description": "1 \tHana Melese \tUGR/3687/15",
-  "main": "index.js",
+  "description": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hanamelese/treasure-hunt-game.git"
+    "start": "node src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/hanamelese/treasure-hunt-game/issues"
-  },
-  "homepage": "https://github.com/hanamelese/treasure-hunt-game#readme"
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "hbs": "^4.2.0",
+    "mongoose": "^7.0.3",
+    "validator": "^13.9.0"
+  }
 }
