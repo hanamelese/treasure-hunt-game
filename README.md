@@ -3,7 +3,7 @@
 
   1 	Hana Melese 	UGR/3687/15
 
-  2 	Lensa yaDesa 	UGR/8593/15
+  2 	Lensa Yadesa 	UGR/8593/15
 
   3 	Martha Birhanu 	UGR/1363/15
 
