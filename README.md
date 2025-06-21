@@ -5,7 +5,7 @@
 
   2 	Lensa yaDesa 	UGR/8593/15
 
-  3 	Martha Mengstu 	UGR/1363/15
+  3 	Martha Birhanu 	UGR/1363/15
 
   4 	Rita Ayalew 	UGR/7639/15
 
