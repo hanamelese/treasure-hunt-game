@@ -13,7 +13,7 @@
 
 #Setup and configuration
 
-git clone https://github.com/hanamelese/treasure-hunt-game
+git clone https://github.com/hanamelese/treasure-hunt-game.git
 
 cd Mystery-Mansion-TreasureHuntGame
 
