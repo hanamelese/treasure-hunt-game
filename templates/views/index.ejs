@@ -4,17 +4,263 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/ico">
-    <title>Home</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Creepster&display=swap">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/ico">
+    <title>Mystery Mansion</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .halloween-body {
+            position: relative;
+            margin: 0;
+            padding: 40px;
+            background-image: url('/images/scary-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            filter: blur(3px);
+            height: 100vh;
+        }
+
+        #batsCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .halloween-container {
+            text-align: center;
+            padding: 5%;
+            position: absolute; /* Changed to absolute for overlay */
+            top: 60px;
+            right: 70px;
+            color: #d5d5d5;
+            z-index: 3; /* Higher z-index to be above body and bats */
+            width: 380px;
+            height: 310px;
+            background-image: url('/images/scary-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            border: 9px solid rgba(255, 255, 255, 0.2); /* Glassy border base */
+            border-radius: 25px;
+            backdrop-filter: blur(5px); /* Glassy effect */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(255, 255, 255, 0.1); /* Glassy glow */
+        }
+
+        .halloween-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: inherit;
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+        .halloween-heading {
+            font-family: 'Creepster', cursive;
+            font-size: 4em;
+            color: #818181;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+            margin-top: 20px;
+            position: relative; /* Ensure text is above blurred background */
+            z-index: 2;
+        }
+
+        .buttons-container {
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .link-class {
+            text-decoration: none;
+            color: #d5d5d5;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #6a0000;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s;
+            font-family: 'Creepster', cursive;
+            font-size: 1.1em;
+        }
+
+        .link-class:hover {
+            background-color: #6c0000;
+        }
+        .no-bg{
+            background: transparent;
+            left: 30px;
+            max-width: 400px;
+            border: none;
+            backdrop-filter: none;
+            box-shadow:none;
+        }
+        .no-bg h2{
+            font-size: 5rem;
+            max-width: 250px;
+        }
+        .users-button{
+            background: transparent;
+            border: 2px solid rgb(190, 190, 190);
+        }
+        .right-container{
+            text-align: start;
+        }
+        .right-container p{
+            color: rgb(214, 214, 214);
+        }
+        .flexer{
+            color: rgb(214, 214, 214);
+            display: flex;
+            align-items: center;
+        }
+        .end{
+            margin-top: 70px;
+        }
+
+        @media (max-width: 768px) {
+            .halloween-container {
+                max-width: 300px;
+                padding-top: 5%;
+            }
+            .halloween-heading {
+                font-size: 2.9em;
+            }
+            .link-class {
+                font-size: 1.2em;
+                padding: 8px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .halloween-body {
+                justify-content: center;
+                padding: 5px;
+            }
+            .halloween-container {
+                max-width: 90%;
+                padding-top: 10%;
+                top: 0; /* Reset top offset on small screens */
+                right: 0; /* Reset right offset on small screens */
+                left: 50%; /* Center horizontally */
+                transform: translateX(-50%); /* Center adjustment */
+            }
+            .halloween-heading {
+                font-size: 2em;
+            }
+            .buttons-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .link-class {
+                font-size: 1em;
+                padding: 6px 12px;
+                margin: 5px 0;
+            }
+        }
+
+        .right-container #start{
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+    </style>
 </head>
 <body>
-    <h3 data-text="MYSTERY MANSION" class="main-heading">MYSTERY MANSION</h3>
-    <br>
-    <div class="buttons-container">
-        <a class="link-class play-button" style="--clr:#01fe87" href="/login"><span>Play the Game</span></a>
-        <a class="link-class users-button" style="--clr:#01fe87" href="/table"><span>View Users</span></a>
+    <div class="halloween-body">
+        <canvas id="batsCanvas"></canvas>
+        <div class="custom-shape-divider-top-1750774076">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
+        </div>
     </div>
-    
+    <div class="halloween-container right-container">
+        <div id="start">
+            <h4>MYSTERY STUFF DISCOVERY</h4>
+            <div class="flexer">
+                <h4>with | </h4><span class="link-class play-button">many</span><h5> | different themes</h5>
+            </div>
+            <h4>the best game full with a thrilling journey that will leave you with a chill along your spine</h4>
+        </div>
+        <div class="end">
+            <a class="link-class play-button" href="/instructions"><span>Learn More</span></a>
+        </div>
+    </div>
+    <div class="halloween-container no-bg">
+            <h3>get ready for discovering lost spooky things.</h3>
+            <h1 data-text="MYSTERY MANSION" class="halloween-heading">MYSTERY MANSION</h1>
+            <div class="buttons-container">
+                <a class="link-class play-button" href="/login"><span>Play the Game</span></a>
+                <a class="link-class users-button" href="/table"><span>View Users</span></a>
+            </div>
+    </div>
+    <script>
+        // Floating bats animation
+        const canvas = document.getElementById('batsCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const bats = [];
+        const batImage = new Image();
+        batImage.src = '/items/bat.png'; // Corrected path
+
+        class Bat {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 30 + 30; // Increased size range: 30-60px
+                this.speedX = (Math.random() - 0.5) * 1.5;
+                this.speedY = (Math.random() - 0.5) * 1.5;
+                this.opacity = Math.random() * 0.3 + 0.5; // Increased opacity range: 0.5-0.8
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+            }
+            draw() {
+                ctx.globalAlpha = this.opacity;
+                ctx.drawImage(batImage, this.x, this.y, this.size, this.size);
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        function initBats() {
+            for (let i = 0; i < 8; i++) {
+                bats.push(new Bat());
+            }
+        }
+
+        function animateBats() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            bats.forEach(bat => {
+                bat.update();
+                bat.draw();
+            });
+            requestAnimationFrame(animateBats);
+        }
+
+        batImage.onload = () => {
+            initBats();
+            animateBats();
+        };
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
 </body>
 </html>

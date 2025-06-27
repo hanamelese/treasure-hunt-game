@@ -13,7 +13,8 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364); /* matching landing page */
+    /* background: linear-gradient(135deg, #0f2027, #203a43, #0a1c24); */
+    background: linear-gradient(135deg, #09151d, #112129, #071e25);
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
 }
@@ -54,7 +55,7 @@ body {
     width: 100%;
     padding: 15px 20px;
     background: transparent;
-    border: 2px solid #4CAF50; /* matching button color */
+    border: 2px solid #011401;
     border-radius: 8px;
     outline: none;
     font-size: 1em;
@@ -63,8 +64,8 @@ body {
 }
 
 .inputBox input:focus {
-    border-color: #66bb6a;
-    box-shadow: 0 0 8px #66bb6a;
+    border-color: #021503;
+    box-shadow: 0 0 8px #042f06;
 }
 
 /* Labels for inputs */
@@ -85,7 +86,7 @@ body {
     top: -20px;
     left: 10px;
     font-size: 0.75em;
-    color: #66bb6a;
+    color: #2b4e2d;
 }
 
 /* Style for underline effect on input focus */
@@ -98,7 +99,7 @@ body {
 button.link-class {
     margin-top: 30px;
     padding: 15px 30px;
-    background-color: #4CAF50; /* matching theme */
+    background-color: #0e0e0e;
     color: #fff;
     border: none;
     border-radius: 15px;
@@ -106,26 +107,27 @@ button.link-class {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: 100%; /* full width of parent container */
+    width: 100%;
 }
 
 /* Optional: if you have a wrapper for the button, ensure it matches input width */
 .play-button {
     width: 100%;
     display: flex;
-    justify-content: center; /* center the button if needed */
-    margin-top: 30px; /* space above button */
+    justify-content: center;
+    margin-top: 30px;
 }
 
 button.link-class:hover {
-    background-color: #66bb6a;
-    box-shadow: 0 8px 15px rgba(102, 187, 106, 0.3);
+    color: #fff;
+    background-color: #263a27;
+    box-shadow: 0 8px 15px rgba(33, 63, 34, 0.3);
     transform: translateY(-2px);
 }
 
 /* Optional: Add focus outline for accessibility */
 button.link-class:focus {
-    outline: 2px solid #66bb6a;
+    outline: 2px solid #0c200d;
 }
 
 /* Responsive adjustments */
@@ -139,105 +141,145 @@ button.link-class:focus {
     }
 }
 
-/* Heading styles with new animation and color scheme */
-.main-heading {
+/* Halloween-themed landing page styles */
+.halloween-body {
+    background: linear-gradient(180deg, #1a0b2e 70%, #2e1a47 100%);
+    background-image: url('/images/haunted-bg.jpg'); /* Optional: Add haunted mansion background */
+    background-size: cover;
+    background-position: center;
     position: relative;
-    font-size: 90px;
-    color: #ffffff; /* White base color */
-    -webkit-text-stroke: 1.5px #4CAF50; /* Match button color (green) */
-    text-transform: uppercase;
-    white-space: nowrap;
-    text-align: center;
-    margin-bottom: 40px;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-    animation: shimmerGlow 3s infinite alternate;
 }
 
-/* New shimmer glow animation for the heading */
-@keyframes shimmerGlow {
-    0% {
-        text-shadow: 0 0 10px #4CAF50, 0 0 20px #4CAF50, 0 0 30px #4CAF50;
-        opacity: 1;
-    }
-    100% {
-        text-shadow: 0 0 20px #66bb6a, 0 0 40px #66bb6a, 0 0 60px #66bb6a;
-        opacity: 0.9;
-    }
+#batsCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0.3;
 }
 
-.main-heading::before {
-    display: none;
-}
-.link-class {
-    display: inline-block;
-    background-color: #4CAF50; 
-    color: #ffffff; 
-    padding: 15px 40px;
-    margin: 20px;
-    border-radius: 12px;
-    font-size: 1.5em;
-    text-decoration: none;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    display: inline-block;
-}
-
-/* Make buttons container flex to align side by side */
-body {
+.halloween-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+    z-index: 2;
+    position: relative;
+}
+
+.halloween-heading {
+    font-family: 'Creepster', cursive;
+    font-size: 5rem;
+    color: #ff7518;
+    text-shadow: 0 0 10px #ff7518, 0 0 20px #000;
+    animation: halloween-flicker 2s infinite alternate;
+    margin-bottom: 30px;
 }
 
 .buttons-container {
     display: flex;
     gap: 20px;
-    margin-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    z-index: 2;
 }
 
-@keyframes pulseHover {
-    0% {
-        transform: scale(1);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    }
-    50% {
-        transform: scale(1.1);
-        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    }
+.link-class {
+    background-color: #2e1a47;
+    border: 2px solid #ff7518;
+    color: #ff7518;
+    padding: 15px 40px;
+    margin: 10px;
+    border-radius: 12px;
+    font-size: 1.5rem;
+    font-family: 'Creepster', cursive;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
 .link-class:hover {
-    background-color: #45a049; 
-    animation: pulseHover 0.6s forwards;
-    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.4);
+    background-color: #ff7518;
+    color: #2e1a47;
     transform: scale(1.05);
+    box-shadow: 0 0 20px #ff7518;
+    animation: none;
+}
+
+.link-class::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #ff7518, transparent);
+    transition: left 0.5s;
+}
+
+.link-class:hover::before {
+    left: 100%;
+}
+
+/* Halloween flicker animation */
+@keyframes halloween-flicker {
+    0% { opacity: 1; text-shadow: 0 0 10px #ff7518, 0 0 20px #000; }
+    50% { opacity: 0.7; text-shadow: 0 0 5px #ff7518, 0 0 10px #000; }
+    100% { opacity: 1; text-shadow: 0 0 15px #ff7518, 0 0 30px #000; }
+}
+
+/* Responsive adjustments for Halloween theme */
+@media (max-width: 768px) {
+    .halloween-heading {
+        font-size: 3rem;
+    }
+    .link-class {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .halloween-heading {
+        font-size: 2rem;
+    }
+    .buttons-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .link-class {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
 }
 
 
-@media only screen and (max-width: 600px) {
-    .main-heading {
-        font-size: 50px;
-        padding: 0 10px;
-    }
 
-    .buttons-container {
-        flex-direction: column;
-        align-items: center;
-    }
+.custom-shape-divider-top-1750774076 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 50%;
+    overflow: hidden;
+    line-height: 0;
+}
 
-    .link-class {
-        font-size: 1.2em;
-        padding: 12px 30px;
-        margin: 10px 0;
-    }
+.custom-shape-divider-top-1750774076 svg {
+    position: relative;
+    display: block;
+    width: calc(273% + 1.3px);
+    height: 393px;
+}
+
+.custom-shape-divider-top-1750774076 .shape-fill {
+    background-color: transparent;
 }

@@ -46,7 +46,7 @@ var img_candlestick = new THREE.MeshBasicMaterial({
   });
   img_telepfone.map.minFilter = THREE.LinearFilter;
   var telepfone = new THREE.Mesh(new THREE.PlaneGeometry(142, 212), img_telepfone);
-  telepfone.name = 'Telepfone';
+  telepfone.name = 'Telephone';
   telepfone.scale.set(0.3, 0.3, 0.3);
   telepfone.position.set(40, -140, 130);
   telepfone.rotation.set(0.2, 3.2, 0);

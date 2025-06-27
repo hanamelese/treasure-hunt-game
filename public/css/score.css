@@ -1,71 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-body{
+body {
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
     background: #23242a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #fff; /* Ensure all text defaults to white */
 }
 
-.main-heading{
+.main-heading {
     font-weight: 600;
     text-align: center;
     background-color: #23242a;
     color: #fff;
-    padding: 10px 0px;
+    padding: 10px 0;
+    width: 100%;
+    margin-bottom: 1rem; /* Space below heading */
 }
 
-.score-para{
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 20px;
+    max-width: 500px; /* Limits container width for readability */
+    width: 100%;
+}
+
+.score-para {
     font-weight: 600;
     text-align: center;
-    background-color: #23242a;
     color: #fff;
-    position: absolute;
-    top: 20%;
-    left: 1.5%;
+    margin: 0;
 }
 
-.name-label{
-    position: absolute;
-    top: 29.5%;
-    left: 1.5%;
-    color: #fff;
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
 
-.name-input{
-    position: absolute;
-    top: 29%;
-    left: 7%;
-    height: 30px;
-}
-
-.score-label{
-    position: absolute;
-    top: 35.5%;
-    left: 1.5%;
+.name-label {
+    font-weight: 600;
     color: #fff;
 }
 
-.score-input{
-    position: absolute;
-    top: 35%;
-    left: 7%;
-    height: 30px;
+.name-input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    background: transparent;
+    color: #fff;
 }
 
-.result-button{
-    position: absolute;
-    top: 55%;
-    left: 1.5%;
+input[type="hidden"] {
+    display: none; /* Hide the hidden input visually */
 }
 
-.submit-button{
-    position: absolute;
-    top: 45%;
-    left: 1.5%;
-}
-
-.link-class{
+.submit-button,
+.result-button {
     background: #fff;
     color: #000;
     text-decoration: none;
@@ -75,25 +78,42 @@ body{
     font-weight: 400;
     padding: 10px 30px;
     transition: 0.5s;
+    border: none;
+    cursor: pointer;
+    text-align: center;
 }
 
-.link-class:hover{
+.submit-button:hover,
+.result-button:hover {
     background: var(--clr);
     letter-spacing: 0.25em;
     box-shadow: 0 0 35px var(--clr);
 }
 
-@media only screen and (max-width : 356px){
-    .score-para{
-        position : absolute;
-        top : 12%;
+.result-button {
+    margin-top: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-heading {
+        font-size: 1.5rem;
     }
-    .name-input{
-        position : absolute;
-        left : 25%;
+
+    .score-para {
+        font-size: 1.2rem;
     }
-    .score-input{
-        position : absolute;
-        left : 25%;
+
+    .name-label {
+        font-size: 1rem;
+    }
+
+    .name-input {
+        max-width: 100%;
+    }
+
+    .submit-button,
+    .result-button {
+        font-size: 1.2em;
+        padding: 8px 20px;
     }
 }

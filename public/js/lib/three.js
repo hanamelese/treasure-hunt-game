@@ -943,11 +943,6 @@
 
 	};
 
-	/**
-	 * @author mrdoob / http://mrdoob.com/
-	 * @author alteredq / http://alteredqualia.com/
-	 * @author szimek / https://github.com/szimek/
-	 */
 
 	function Texture( image, mapping, wrapS, wrapT, magFilter, minFilter, format, type, anisotropy, encoding ) {
 
@@ -1223,19 +1218,6 @@
 
 	var count = 0;
 	function TextureIdCount() { return count++; };
-
-	/**
-	 * @author mrdoob / http://mrdoob.com/
-	 * @author supereggbert / http://www.paulbrunt.co.uk/
-	 * @author philogb / http://blog.thejit.org/
-	 * @author jordi_ros / http://plattsoft.com
-	 * @author D1plo1d / http://github.com/D1plo1d
-	 * @author alteredq / http://alteredqualia.com/
-	 * @author mikael emtinger / http://gomo.se/
-	 * @author timknip / http://www.floorplanner.com/
-	 * @author bhouston / http://clara.io
-	 * @author WestLangley / http://github.com/WestLangley
-	 */
 
 	function Matrix4() {
 
@@ -2773,14 +2755,6 @@
 
 	} );
 
-	/**
-	 * @author mrdoob / http://mrdoob.com/
-	 * @author *kile / http://kile.stravaganza.org/
-	 * @author philogb / http://blog.thejit.org/
-	 * @author mikael emtinger / http://gomo.se/
-	 * @author egraether / http://egraether.com/
-	 * @author WestLangley / http://github.com/WestLangley
-	 */
 
 	function Vector3( x, y, z ) {
 
@@ -3528,10 +3502,6 @@
 
 	};
 
-	/**
-	 * @author mikael emtinger / http://gomo.se/
-	 * @author alteredq / http://alteredqualia.com/
-	 */
 
 	function SpritePlugin( renderer, sprites ) {
 
@@ -3902,9 +3872,6 @@
 
 	}
 
-	/**
-	 * @author bhouston / http://clara.io
-	 */
 
 	function Box2( min, max ) {
 
@@ -4136,10 +4103,7 @@
 
 	};
 
-	/**
-	 * @author mikael emtinger / http://gomo.se/
-	 * @author alteredq / http://alteredqualia.com/
-	 */
+
 
 	function LensFlarePlugin( renderer, flares ) {
 
