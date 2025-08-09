@@ -39,6 +39,10 @@ body {
     margin-bottom: 20px;
 }
 
+ul{
+    margin-bottom: 30px;
+}
+
 /* List styles */
 li {
     color: #fff;
@@ -53,4 +57,29 @@ a {
 /* Optional: Make links stand out on hover */
 a:hover {
     color: #01fe87;
+}
+
+.clues-card .back{
+    background: #fff;
+    color: #000;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    padding: 15px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    flex: 1 1 200px;
+    text-align: center;
+    margin-left: 40px;
+}
+
+
+.clues-card .back:hover {
+    background-color: var(--clr, #000000);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: translateY(-2px);
 }

@@ -38,6 +38,10 @@ app.get("/login", (req,res) => {
     res.send("login Page");
 });
 
+app.get("/learnmore", (req, res) => {
+    res.send("learnmore");
+});
+
 app.get("/signup", (req,res) => {
     res.send("signup Page");
 });

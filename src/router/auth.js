@@ -34,6 +34,10 @@ router.get("/instructions", requireAuth, (req, res) => {
     res.render("instructions");
 });
 
+router.get("/learnmore", (req, res) => {
+    res.render("learnmore");
+});
+
 router.get("/game", requireAuth, (req, res) => {
     res.render("game");
 });
