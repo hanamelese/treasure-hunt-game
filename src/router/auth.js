@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Session middleware
 router.use(session({
-    secret: 'your-secret-key', // Replace with a secure key
+    secret: process.env.SESSION_SECRET, // Replace with a secure key
     resave: false,
     saveUninitialized: false
 }));
@@ -16,6 +16,7 @@ router.use(session({
 // Middleware to protect routes
 const requireAuth = (req, res, next) => {
     if (!req.session.userId) {
+        console.log(req);
         return res.redirect("/index.html");
     }
     next();

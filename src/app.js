@@ -46,6 +46,6 @@ app.get("/signup", (req,res) => {
     res.send("signup Page");
 });
 
-app.listen(port, () => {
-    console.log(`App started at Port ${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`App started at Port ${port}`);
+// });
