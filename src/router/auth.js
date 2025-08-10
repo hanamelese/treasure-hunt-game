@@ -107,9 +107,9 @@ router.post("/auth", async (req, res) => {
             return res.json({ success: true, userId: userData._id });
         }
     } catch (err) {
-        console.error(err);
-        res.status(500).json({ success: false, message: "Server error" });
-    }
+  console.error("🔥 /auth error:", err.stack || err);
+  res.status(500).json({ success: false, message: "Server error" });
+}
 });
 
 router.post("/score", requireAuth, async (req, res) => {

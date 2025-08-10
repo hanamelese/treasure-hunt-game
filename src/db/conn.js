@@ -14,3 +14,4 @@ mongoose.connect(DB, {
 }).then(()=>{
     console.log("DB Connected");
 }).catch((err)=> console.log("error in conn",err));
+console.log("Mongoose readyState:", mongoose.connection.readyState);
