@@ -1,23 +1,52 @@
 const express = require("express");
 const session = require("express-session");
-const bcrypt = require("bcrypt");
+// connect-mongo v6 is a dual ESM/CJS package: require() returns the namespace,
+// so the store class is a named export rather than the module itself.
+const MongoStore = require("connect-mongo").MongoStore;
+const bcrypt = require("bcryptjs");
 const User = require("../db/models/userSchema");
 const Result = require("../db/models/resultSchema");
 
 const router = express.Router();
 
+// Fail loudly at startup rather than mysteriously at request time.
+if (!process.env.SESSION_SECRET) {
+    throw new Error(
+        "SESSION_SECRET is not set. Set it in Vercel \u2192 Settings \u2192 Environment Variables, " +
+        "or in config.env for local development."
+    );
+}
+if (!process.env.DATABASE) {
+    throw new Error(
+        "DATABASE is not set. Set it in Vercel \u2192 Settings \u2192 Environment Variables, " +
+        "or in config.env for local development."
+    );
+}
+
 // Session middleware
+// The store is the whole fix: without it express-session uses an in-memory store,
+// which on serverless dies with the function instance that created the session.
 router.use(session({
-    secret: process.env.SESSION_SECRET, // Replace with a secure key
+    secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.DATABASE,
+        collectionName: "sessions",
+        ttl: 14 * 24 * 60 * 60 // seconds
+    }),
+    cookie: {
+        secure: process.env.NODE_ENV === "production", // Vercel sets this; local HTTP still works
+        httpOnly: true,
+        sameSite: "lax",
+        maxAge: 14 * 24 * 60 * 60 * 1000 // milliseconds
+    }
 }));
 
 // Middleware to protect routes
 const requireAuth = (req, res, next) => {
     if (!req.session.userId) {
-        console.log(req);
-        return res.redirect("/index.html");
+        return res.redirect("/login");
     }
     next();
 };

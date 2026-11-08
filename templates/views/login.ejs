@@ -13,6 +13,10 @@
     <div class="box">
         <span class="borderLine"></span>
         <form id="authForm" method="POST">
+            <div class="mode-tabs" id="modeTabs" role="tablist">
+                <button type="button" id="tabLogin" class="mode-tab" role="tab">Log in</button>
+                <button type="button" id="tabSignup" class="mode-tab" role="tab">Sign up</button>
+            </div>
             <h2 id="formTitle">Enter your Information</h2>
             <div class="inputBox">
                 <input type="email" name="email" required="required">
@@ -33,16 +37,23 @@
         const form = document.getElementById('authForm');
         const formTitle = document.getElementById('formTitle');
         const errorMessage = document.getElementById('errorMessage');
-        const userId = localStorage.getItem('userId');
+        const tabLogin = document.getElementById('tabLogin');
+        const tabSignup = document.getElementById('tabSignup');
 
-        // Set form title based on userId
-        if (userId) {
-            formTitle.textContent = 'Login to Play';
-            form.action = '/auth?type=login';
-        } else {
-            formTitle.textContent = 'Register to Play';
-            form.action = '/auth?type=signup';
+        // The user picks the mode explicitly. localStorage only chooses the default,
+        // so a returning user on a new browser is no longer forced into signup.
+        function setMode(mode) {
+            form.action = '/auth?type=' + mode;
+            formTitle.textContent = mode === 'login' ? 'Log in to Play' : 'Register to Play';
+            tabLogin.style.fontWeight = mode === 'login' ? 'bold' : 'normal';
+            tabSignup.style.fontWeight = mode === 'signup' ? 'bold' : 'normal';
+            errorMessage.textContent = '';
         }
+
+        tabLogin.onclick = (e) => { e.preventDefault(); setMode('login'); };
+        tabSignup.onclick = (e) => { e.preventDefault(); setMode('signup'); };
+
+        setMode(localStorage.getItem('userId') ? 'login' : 'signup');
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();

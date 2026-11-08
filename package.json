@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "node src/app.js"
+    "start": "node init && node src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "connect-mongo": "^6.0.0",
     "dotenv": "^16.0.3",
     "ejs": "^3.1.9",
     "express": "^4.21.2",
@@ -18,5 +19,8 @@
     "mongoose": "^7.8.7",
     "nodemon": "^3.1.10",
     "validator": "^13.9.0"
+  },
+  "engines": {
+    "node": "24.x"
   }
 }
