@@ -283,3 +283,30 @@ button.link-class:focus {
 .custom-shape-divider-top-1750774076 .shape-fill {
     background-color: transparent;
 }
+
+.mode-tabs {
+    display: flex;
+    margin: 0 auto 16px;
+    max-width: 280px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    overflow: hidden;
+}
+.mode-tab {
+    flex: 1;
+    padding: 8px 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+.mode-tab:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+.mode-tab.active {
+    background: #f5c542;
+    color: #1a1a1a;
+    font-weight: bold;
+}
